@@ -1,0 +1,49 @@
+@use "sass:math";
+// $is-rtl: false;
+$rfs-breakpoint: 1568px;
+$rfs-base-value: 14px;
+$enable-smooth-scroll: false;
+// Overide bootstrap varibales
+$primary: #0E3958;
+$danger:#FA4248;
+$info: #F1F0F2;
+$body-color: #000000;
+$body-bg: #ffffff;
+
+$font-family-base: "Montserrat", sans-serif;
+
+$link-color: inherit;
+$link-decoration: none;
+$link-hover-decoration: none;
+$link-hover-color: $primary;
+$btn-font-weight: 700;
+$headings-font-weight: 700;
+
+$grid-gutter-width: 1.25rem;
+
+// $input-border-radius: 0;
+// $input-border-color: $dark;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1420px
+);
+// Bootstrap Configuration Start
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+// Bootstrap Configuration End
+
+// Custom Mixins
+@import "./mixins.scss";
+
+// Custom variables
+$font-weight-medium: 500;
+$font-weight-semi: 600;
+$font-weight-black: 900;
+$header-height: 100px;
+$header-height-md: 80px;

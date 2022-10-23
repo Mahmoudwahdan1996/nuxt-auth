@@ -1,0 +1,221 @@
+// Spacing
+$sizeUnit: rem;
+$marginKey: "m";
+$paddingKey: "p";
+$separator: "-";
+$sizes: (
+  ("e9", 0.2em),
+  ("e8", 0.3em),
+  ("e7", 0.4em),
+  ("e6", 0.5em),
+  ("e5", 0.6em),
+  ("e4", 0.7em),
+  ("e3", 0.8em),
+  ("e2", 0.9em),
+  ("e1", 1em),
+  ("none", 0),
+  ("xxxs", 8px),
+  ("xxs", 10px),
+  ("xs", 14px),
+  ("sm", 20px),
+  ("md", 30px),
+  ("lg", 40px),
+  ("xl", 60px),
+  ("2xl", 80px),
+  ("3xl", 100px),
+  ("4xl", 200px)
+);
+$positions: (("t", "top"), ("e", "right"), ("b", "bottom"), ("s", "left"));
+
+@function sizeValue($key, $value) {
+  @return if($key== "none", 0, $value + $sizeUnit);
+}
+@each $size in $sizes {
+  $sizeKey: nth($size, 1);
+  $sizeValue: nth($size, 2);
+
+  .#{$marginKey}#{$separator}#{$sizeKey} {
+    @include margin($sizeValue);
+  }
+
+  .#{$paddingKey}#{$separator}#{$sizeKey} {
+    @include padding($sizeValue);
+  }
+
+  @each $position in $positions {
+    $posKey: nth($position, 1);
+    $posValue: nth($position, 2);
+
+    .#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+      @include rfs($sizeValue, margin-#{$posValue});
+    }
+
+    .#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+      @include rfs($sizeValue, padding-#{$posValue});
+    }
+  }
+}
+
+.fs {
+  &-4xl {
+    @include font-size(60px);
+  }
+  &-3xl {
+    @include font-size(50px);
+  }
+  &-2xl {
+    @include font-size(40px);
+  }
+  &-xl {
+    @include font-size(30px);
+  }
+  &-lg {
+    @include font-size(24px);
+  }
+  &-md {
+    @include font-size(20px);
+  }
+  &-sm {
+    @include font-size(18px);
+  }
+  &-base {
+    @include font-size(16px);
+  }
+  &-xs {
+    @include font-size(14px);
+  }
+  &-xxs {
+    @include font-size(12px);
+  }
+}
+
+.max {
+  &-xxxl {
+    max-width: 1200px;
+  }
+  &-xxl {
+    max-width: 1000px;
+  }
+  &-xl {
+    max-width: 800px;
+  }
+  &-lg {
+    max-width: 600px;
+  }
+  &-md {
+    max-width: 500px;
+  }
+  &-mm {
+    max-width: 400px;
+  }
+  &-sm {
+    max-width: 240px;
+  }
+  &-100 {
+    max-width: 100px;
+  }
+  &-xs {
+    max-width: 80px;
+  }
+  &-xxs {
+    max-width: 40px;
+  }
+}
+.order {
+  &-lg {
+    @include media-breakpoint-down(lg) {
+      order: -1;
+    }
+  }
+
+  &-md {
+    @include media-breakpoint-down(md) {
+      order: -1;
+    }
+  }
+
+  &-sm {
+    @include media-breakpoint-down(sm) {
+      order: -1;
+    }
+  }
+}
+.fw-medium {
+  font-weight: $font-weight-medium;
+}
+.fw-semi {
+  font-weight: $font-weight-semi;
+}
+.fw-black {
+  font-weight: $font-weight-black;
+}
+.mb-col {
+  margin-bottom: $grid-gutter-width;
+  @include media-breakpoint-down(sm) {
+    margin-bottom: calc($grid-gutter-width / 2);
+  }
+}
+.mt-col {
+  margin-top: $grid-gutter-width;
+  @include media-breakpoint-down(sm) {
+    margin-top: calc($grid-gutter-width / 2);
+  }
+}
+
+.gx {
+  &-md {
+    @include margin-right(-20px);
+    @include margin-left(-20px);
+    > * {
+      @include padding-right(20px);
+      @include padding-left(20px);
+    }
+  }
+  &-lg {
+    @include margin-right(-30px);
+    @include margin-left(-30px);
+    > * {
+      @include padding-right(30px);
+      @include padding-left(30px);
+    }
+  }
+}
+.pt-header {
+  padding-top: $header-height;
+  @include media-breakpoint-down(lg) {
+    padding-top: $header-height-md;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.flex-auto {
+  flex: 1 1 0%;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 -0.5em;
+}
+
+.load {
+  background-color: rgba($color: #000000, $alpha: 0.1);
+}

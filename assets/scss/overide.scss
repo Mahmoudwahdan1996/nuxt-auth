@@ -1,0 +1,18 @@
+.form-control.form-control-light {
+  border-color: $white;
+  background: transparent;
+  color: $white;
+}
+
+.row.is-sm {
+  @include media-breakpoint-down(sm) {
+    margin-left: calc($grid-gutter-width / -4);
+    margin-right: calc($grid-gutter-width / -4);
+  }
+  > .col-6 {
+    @include media-breakpoint-down(sm) {
+      padding-left: calc($grid-gutter-width / 4);
+      padding-right: calc($grid-gutter-width / 4);
+    }
+  }
+}
